@@ -1,18 +1,3 @@
-export interface VideoInterface {
-  type: string;
-  videoId: string;
-  title: string;
-  channelId: string;
-  channelThumbnail: any[];
-  channelTitle: string;
-  description: string;
-  lengthText: string;
-  publishedText: string;
-  richThumbnail: any[];
-  thumbnail: { url: string }[];
-  viewCount: string;
-}
-
 export interface channelI {
   channelId: string;
   channelTitle: string;
@@ -106,4 +91,67 @@ export interface ChannelDetail {
       };
     }
   ];
+}
+
+export interface VideoUI {
+  id: string;
+  title: string;
+  lengthSeconds: string;
+  keywords: [string];
+  channelTitle: string;
+  channelId: string;
+  description: string;
+  thumbnail: {
+    url: string;
+    width: number;
+    height: number;
+  }[];
+  allowRatings: true;
+  viewCount: string;
+  isPrivate: false;
+  isUnpluggedCorpus: false;
+  isLiveContent: false;
+  isCrawlable: true;
+  isFamilySafe: true;
+  availableCountries: string[];
+  isUnlisted: boolean;
+  category: string;
+  publishDate: string;
+  uploadDate: string;
+  storyboards: string;
+}
+
+export interface relatedVideos {
+  type: string;
+  videoId: string;
+  title: string;
+  lengthText: string;
+  viewCount: string;
+  publishedTimeText: string;
+  thumbnail: {
+    url: string;
+    width: number;
+    height: number;
+  }[];
+  channelTitle: string;
+  channelId: string;
+  authorThumbnail: {
+    url: string;
+    width: number;
+    height: number;
+  }[];
+}
+export interface VideoInterface {
+  type: string;
+  videoId: string;
+  title: string;
+  channelId: string;
+  channelThumbnail: any[];
+  channelTitle: string;
+  description: string;
+  lengthText: string;
+  publishedText: string;
+  richThumbnail: any[];
+  thumbnail: { url: string }[];
+  viewCount: string;
 }

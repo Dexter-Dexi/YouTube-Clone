@@ -2,16 +2,16 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { Typography, Box, Stack } from '@mui/material';
-import { CheckCircle } from '@mui/icons-material';
+// import { CheckCircle } from '@mui/icons-material';
 import { fetchURL } from '../utils/API';
-
+import { VideoUI, VideoInterface } from '../utils/Interfaces';
 import { VideoCard } from '../components/VideoCard';
 
 export default function Video() {
   const { id } = useParams();
 
-  const [video, setVideo] = useState(null);
-  const [relatedvideos, setRelatedVideos] = useState([]);
+  const [video, setVideo] = useState<VideoUI>();
+  const [relatedvideos, setRelatedVideos] = useState<VideoInterface[]>([]);
 
   // if
 
@@ -57,7 +57,9 @@ export default function Video() {
               </Link>
               <Stack>
                 <Typography variant="body1" sx={{ opacity: 0.7 }}>
-                  {parseInt(video?.viewCount).toLocaleString()}
+                  {parseInt(
+                    video?.viewCount ? video?.viewCount : '100000'
+                  ).toLocaleString()}
                 </Typography>
               </Stack>
             </Stack>
@@ -71,7 +73,7 @@ export default function Video() {
           gap={2}
           bgcolor={'#000'}>
           {relatedvideos.map(video => (
-            <Box key={video?.title}>{<VideoCard {...video} />}</Box>
+            <Box key={video.title}>{<VideoCard {...video} />}</Box>
           ))}
         </Stack>
         {/* VIDEO COMPONENT  */}
