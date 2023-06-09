@@ -1,8 +1,5 @@
-// import { useState } from 'react';
-// import { Box } from '@mui/material';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, Video, Search, NavBar } from './pages/index';
-// import { Home, Channel, Video, Search, NavBar } from './pages/index';
+import { Home, Channel, Video, Search, NavBar, Test } from './pages/index';
 
 // -----------------------------------------------
 function App() {
@@ -13,7 +10,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/video/:id" element={<Video />} />
-          {/* <Route path="/channel/:id" element={<Channel />} /> */}
+          <Route path="/channel/:id" element={<Channel />} />
+          <Route path="/test/" element={<Test />} />
           <Route path="/search/:query" element={<Search />} />
         </Routes>
       </div>

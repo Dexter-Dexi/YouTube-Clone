@@ -17,23 +17,23 @@ export default function Video() {
 
   useEffect(() => {
     fetchURL(`video?id=${id}`).then(data => {
-      console.log(data);
       return setVideo(data);
     });
 
     fetchURL(`related?id=${id}`).then(data => {
-      console.log(data);
       return setRelatedVideos(data.data);
     });
 
     // return () => {};
   }, [id]);
 
+  console.log(video);
+
   return (
-    <Box minHeight={'95vh'}>
+    <Box sx={{ backgroundColor: 'black' }}>
       <Stack
         direction={{ xs: 'column', md: 'row' }}
-        sx={{ backgroundColor: '#000', height: '100vh' }}>
+        sx={{ backgroundColor: '#000', height: 'max' }}>
         <Box flex={1}>
           <Box sx={{ width: '100%', position: 'sticky', top: '86px', p: 3 }}>
             <ReactPlayer
@@ -50,8 +50,13 @@ export default function Video() {
               color={'#fff'}
               py={1}
               px={2}>
-              <Link to={`/channels/${video?.channelId}`}>
-                <Typography variant="body1" sx={{ opacity: 0.7 }}>
+              <Link
+                to={`/channel/${video?.channelId}`}
+                // to={'/test/'}
+              >
+                <Typography
+                  variant="body1"
+                  sx={{ opacity: 0.7, fontWeight: 'bold' }}>
                   {video?.channelTitle}
                 </Typography>
               </Link>
@@ -68,7 +73,7 @@ export default function Video() {
         {/* VIDEO COMPONENT  */}
         <Stack
           direction={'column'}
-          flexWrap={'wrap'}
+          // flexWrap={'wrap'}
           justifyContent={'start'}
           gap={2}
           bgcolor={'#000'}>

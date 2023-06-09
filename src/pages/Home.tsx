@@ -40,14 +40,12 @@ export default function Home() {
           sx={{ color: 'white' }}>
           {selectedCategory} <span className="text-red-600"> Videos</span>
         </Typography>
-        {/* @ts-ignre */}
-        {/* <Videos {...videos} /> */}
 
         {/* VIDEO COMPONENT  */}
         <Stack
           direction={'row'}
           flexWrap={'wrap'}
-          justifyContent={'start'}
+          justifyContent={'center'}
           gap={2}>
           {videos.map(video => (
             <Box key={video.title}>

@@ -15,8 +15,6 @@ export default function Search() {
     fetchURL(`search?query=${query}`).then(data => setVideos(data.data));
   }, [query]);
 
-  console.log(videos);
-
   return (
     <Stack sx={{ flexDirection: { md: 'row' }, background: '#000' }}>
       <Box p={2} sx={{ overflowY: 'auto', height: '100vh', flex: 2 }}>
